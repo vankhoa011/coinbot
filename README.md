@@ -1,6 +1,8 @@
 # CoinBot
 
-When someone type `btc` or `eth`. The CoinBot will answer the price of BTC or ETH at real time.
+CoinBot is a Slack Bot
+
+When someone type `btc` or `eth`. The CoinBot will answer the price of BTC or ETH at real time
 
 ## How to deploy it.
 
