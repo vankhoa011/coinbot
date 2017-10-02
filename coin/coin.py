@@ -19,8 +19,8 @@ def hi(message):
 @listen_to('eth')
 def eth(message):
     price = str(get_coin(coin="eth"))
-    message.reply('1 ETH = ' + price + "USD")
+    message.reply('1 ETH = ' + price + " USD")
 @listen_to('btc')
 def btc(message):
     price = str(get_coin(coin="btc"))
-    message.reply('1 BTC = ' + price + "USD")
+    message.reply('1 BTC = ' + price + " USD")
