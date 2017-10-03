@@ -3,24 +3,26 @@ from slackbot.bot import listen_to
 import re
 import requests
 import json
+from coinmarketcap import Market
+from .config import coins
 def get_coin(coin=None):
     """ Get Price of Coin by USD """
-    url = "https://coinbin.org/" + coin
-    r = requests.get(url)
-    result = json.loads(r.text)
-    return result['coin']['usd']
-
-@listen_to('hi', re.IGNORECASE)
-def hi(message):
-    message.reply('I can understand hi or HI!')
-    # react with thumb up emoji
-    message.react('+1')
-
-@listen_to('eth')
-def eth(message):
-    price = str(get_coin(coin="eth"))
-    message.reply('1 ETH = ' + price + " USD")
-@listen_to('btc')
-def btc(message):
-    price = str(get_coin(coin="btc"))
-    message.reply('1 BTC = ' + price + " USD")
+    for i in coins:
+        if coin.upper() == i['symbol']:
+            coinmarketcap = Market()
+            coin_info = coinmarketcap.ticker(currency=i['id'], convert='USD')
+            return coin_info[0]
+    return None
+@listen_to('get (.*)', re.IGNORECASE)
+def reply(message, coin=None):
+    coin_info = get_coin(coin=coin)
+    if coin_info is None:
+        msg = "Coinbot does not support this currency"
+        message.reply(msg)
+    else:
+        msg = "1 " + coin_info['symbol'] + " = " + coin_info['price_usd'] 
+        message.reply(msg)
+        msg = "Percent Change 1 h :`" + coin_info['percent_change_1h'] +  "` %"
+        message.reply(msg)
+        msg = "Percent Change 24 h :`" + coin_info['percent_change_24h'] +  "` %"
+        message.reply(msg)

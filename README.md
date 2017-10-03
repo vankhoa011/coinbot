@@ -2,7 +2,9 @@
 
 CoinBot is a Slack Bot
 
-When someone type `btc` or `eth`. The CoinBot will answer the price of BTC or ETH at real time
+When someone type `get btc`, `get eth`, `get zec` . The CoinBot will answer the price of currency at the real time. 
+
+CoinBot Support Top 50 Currency.
 
 ## How to deploy it.
 
