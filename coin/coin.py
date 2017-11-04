@@ -20,7 +20,7 @@ def reply(message, coin=None):
         msg = "Coinbot does not support this currency"
         message.reply(msg)
     else:
-        msg = "1 " + coin_info['symbol'] + " = " + coin_info['price_usd'] 
+        msg = "1 " + coin_info['symbol'] + " = " + coin_info['price_usd'] + " USD"
         message.reply(msg)
         msg = "Percent Change 1 h :`" + coin_info['percent_change_1h'] +  "` %"
         message.reply(msg)
