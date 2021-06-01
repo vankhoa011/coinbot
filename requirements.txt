@@ -7,5 +7,5 @@ requests-cache==0.4.13
 six==1.11.0
 slackbot==0.5.1
 slacker==0.9.60
-urllib3==1.22
+urllib3==1.26.5
 websocket-client==0.44.0
