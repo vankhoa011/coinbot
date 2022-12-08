@@ -1,4 +1,4 @@
-certifi==2017.7.27.1
+certifi==2022.12.7
 chardet==3.0.4
 coinmarketcap==4.1.1
 idna==2.6
